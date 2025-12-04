@@ -17,7 +17,7 @@ I'll try to using computer vision learning and train a data set to tell LLM to s
 5. Why & when to use them (UX reasoning)</p>
 
 
-<h2>===Generated part by GPT, But that's the point===</h2>
+<h3>===Generated part by GPT, But that's the point===</h3>
 🔮 2. What a Global-Vision Design Agent Must Understand
 
 To achieve vivid, interactive UI creation, the agent must learn:
@@ -44,7 +44,7 @@ E. Brand storytelling
 
 This agent is essentially a designer.
 
-<h2>DIVIDE LINE</h2>
+<h3>DIVIDE LINE</h3>
 ✅ What You’re Proposing
 
 A model that can:
@@ -63,3 +63,72 @@ A model that can:
 This is extremely powerful.
 
 It turns UI code into visualizable meaning — without needing the browser.
+
+<h2>Step2. Chosing a powerful vision provided model</h2>
+
+| Rank | Model                        | Strength                                                         |
+| ---- | ---------------------------- | ---------------------------------------------------------------- |
+| 1    | **GPT-5.1 Vision**           | Understands depth, motion curves, UX flow                        |
+| 2    | **Qwen2.5-VL (open-source)** | Best open-source for layout + code + UI tree                     |
+| 3    | **InternVL 2.5**             | Great at pixel-level inference: hover states, alignment, spacing |
+
+<p>1. Implement LLM before we do the hot-reloading render</p>
+
+```
+Frontend Hot Reload (Vite / Next / CRA)
+            |
+            | triggers file-change event
+            v
+   Local Dev Server → Node/Express API
+            |
+            | sends:
+            | • changed file(s)
+            | • full repo map
+            | • runtime errors
+            | • console logs
+            v
+   Qwen2.5 Inference Server (API)
+            |
+            | returns model action:
+            | • analyze layout
+            | • analyze interactions
+            | • predict visual issues
+            | • suggest code edits (diff)
+            | • give design feedback
+            v
+  Editor / IDE / Preview UI
+```
+
+✔️ Task 1 (API + Hot Reload)
+
+You set up a:
+
+file watcher (chokidar)
+
+Node API endpoint
+
+send code + context (optionally screenshots)
+
+receive model output & apply diffs
+
+
+
+✔️ Task 2 (Training)
+
+You do:
+
+Prepare dataset
+
+Use QLoRA on Qwen2.5-VL
+
+Train via LLaMA-Factory or TRL
+
+Test on real UI code
+
+Iterate
+
+
+<h2>Building steps (partially)</h2>
+1. Each time we save, we take screenshot on frontend
+2. Collect the code diff
+3. Send Screenshot/code for train
