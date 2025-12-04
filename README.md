@@ -44,22 +44,21 @@ E. Brand storytelling
 
 This agent is essentially a designer.
 
-
+<h2>DIVIDE LINE</h2>
 ✅ What You’re Proposing
 
 A model that can:
 
-Read the UI code (React, HTML, Tailwind, tokens, etc.)
+0. Read the rendering content visualy
 
-Infer the structure & look before rendering
+1. Read the UI code (React, HTML, Tailwind, tokens, etc.)
 
-Predict visual mistakes / layout issues / style conflict
+2. Infer the structure & look before rendering
 
-Suggest design improvements in natural designer language
+3. Predict visual mistakes / layout issues / style conflict
 
-Update the code accordingly
+5. Update the code accordingly
 
-Optionally compare inferred UI with real render (vision loop)
 
 This is extremely powerful.
 
